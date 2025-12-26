@@ -1,0 +1,215 @@
+/* 全局容器 */
+.container {
+  padding: 32rpx;
+  background-color: #f8f9fc; /* 换成更清爽的浅蓝灰背景 */
+  min-height: 100vh;
+  padding-bottom: 220rpx; /* 为底部按钮预留空间 */
+}
+
+/* 顶部标题栏 */
+.header-section {
+  margin-bottom: 32rpx;
+}
+.greeting-box {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+.status-tag {
+  font-size: 22rpx;
+  background: #eef2fe;
+  color: #0052d9;
+  padding: 4rpx 12rpx;
+  border-radius: 6rpx;
+}
+
+/* AI 洞察卡片 - 缩小并增加质感 */
+.ai-summary-card {
+  background: linear-gradient(135deg, #2b58f0 0%, #0032b8 100%);
+  border-radius: 24rpx;
+  padding: 32rpx;
+  color: #ffffff;
+  margin-bottom: 40rpx;
+  box-shadow: 0 12rpx 24rpx rgba(0, 82, 217, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-title {
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  margin-bottom: 20rpx;
+  font-weight: 600;
+}
+
+.ai-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 12rpx;
+}
+
+.summary-content {
+  font-size: 28rpx;
+  line-height: 1.6;
+  opacity: 0.9;
+  display: block;
+}
+
+/* 新闻列表卡片 */
+.news-item {
+  background: #ffffff;
+  border-radius: 20rpx;
+  padding: 28rpx;
+  margin-bottom: 32rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.04);
+}
+
+.news-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #1d2129;
+  margin-bottom: 12rpx;
+  display: block;
+}
+
+.news-brief {
+  font-size: 26rpx;
+  color: #4e5969;
+  line-height: 1.5;
+  margin-bottom: 24rpx;
+  display: block;
+}
+
+/* AI 解读盒 - 增加对比度 */
+.ai-analysis-box {
+  background: #f2f6ff;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  border-left: 6rpx solid #0052d9;
+}
+
+.analysis-label {
+  font-size: 22rpx;
+  color: #0052d9;
+  font-weight: bold;
+  margin-bottom: 8rpx;
+}
+
+.analysis-text {
+  font-size: 26rpx;
+  color: #272e3b;
+  line-height: 1.6;
+}
+
+/* 底部按钮重构 - 胶囊型悬浮 */
+.bottom-action-bar {
+  position: fixed;
+  bottom: 60rpx;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 99;
+}
+
+.refresh-btn-main {
+  background: rgba(29, 33, 41, 0.9) !important; /* 增加透明度实现质感 */
+  backdrop-filter: blur(10px); /* 毛玻璃效果 */
+  color: #ffffff;
+  border-radius: 100rpx;
+  padding: 0 40rpx;
+  height: 100rpx;
+  width: 85% !important; /* 适度宽度 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 20rpx 40rpx rgba(0, 0, 0, 0.2);
+  border: 1rpx solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.icon {
+  font-size: 32rpx;
+  margin-right: 16rpx;
+}
+
+.btn-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.main-t {
+  font-size: 26rpx;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.sub-t {
+  font-size: 18rpx;
+  opacity: 0.7;
+}
+
+/* 顶部标签行 */
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+
+/* 影响标签基础样式 */
+.impact-tag {
+  font-size: 22rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 6rpx;
+  font-weight: bold;
+}
+
+/* 根据后端返回的 impactType 自动变色 */
+.positive { background: #fff1f0; color: #ff4d4f; } /* 利好-红 */
+.negative { background: #f6ffed; color: #52c41a; } /* 利空-绿 (金融界绿代表跌) */
+.neutral { background: #f5f5f5; color: #8c8c8c; }  /* 中性-灰 */
+
+/* 星级样式 */
+.stars-box {
+  display: flex;
+  align-items: center;
+}
+.star-label {
+  font-size: 20rpx;
+  color: #999;
+  margin-right: 8rpx;
+}
+.star-icon {
+  color: #ffc107;
+  font-size: 24rpx;
+  margin-left: 2rpx;
+}
+
+/* AI 智读小标签 */
+.ai-tag-mini {
+  font-size: 20rpx;
+  background: linear-gradient(90deg, #1a73e8, #6de1ff);
+  color: white;
+  padding: 2rpx 10rpx;
+  border-radius: 4rpx;
+  margin-right: 12rpx;
+}
+
+.analysis-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8rpx;
+}
+
+.source-text {
+  font-size: 20rpx;
+  color: #bbb;
+}

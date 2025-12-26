@@ -1,0 +1,41 @@
+<view class="container">
+  <view class="header-section">
+    <text class="status-tag">早报开盘前</text>
+    <text class="greeting">至简财商</text>
+  </view>
+
+  <view class="ai-summary-card">
+    <view class="ai-title">AI 今日洞察</view>
+    <text class="summary-content">{{summary}}</text>
+  </view>
+
+  <view class="news-list">
+    <block wx:for="{{newsList}}" wx:key="index">
+      <view class="news-item">
+        <view class="item-header">
+          <view class="impact-tag {{item.impactType}}">{{item.impactLabel}}</view>
+          <view class="stars-box">
+            <text class="star-label">重要度</text>
+            <text class="star-icon" wx:for="{{item.stars}}" wx:key="*this" wx:for-item="star">★</text>
+          </view>
+        </view>
+
+        <text class="news-title">{{item.title}}</text>
+        
+        <view class="ai-analysis-box">
+          <view class="analysis-header">
+            <view class="ai-tag-mini">AI 智读</view>
+            <text class="source-text">{{item.source}}</text>
+          </view>
+          <text class="analysis-text">{{item.analysis}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <view class="bottom-action-bar">
+    <button class="refresh-btn-main" bindtap="onRefresh" loading="{{isLoading}}">
+      {{isLoading ? 'AI 正在分析...' : '生成实时快讯'}}
+    </button>
+  </view>
+</view>

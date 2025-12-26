@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "至简财商",
+  "usingComponents": {
+    "cloud-tip-modal": "/components/cloudTipModal/index"
+  }
+}
