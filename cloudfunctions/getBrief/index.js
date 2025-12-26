@@ -5,10 +5,10 @@ cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV });
 
 exports.main = async (event, context) => {
   // 1. 配置 API Key
-  const DEEPSEEK_API_KEY = 'sk-c255d3d83f4e4d29bd3092391c27ffc4'; 
+  const DASHSCOPE_API_KEY = 'sk-23c88226e228433bb41efba148a92a39'; 
   const TIAN_API_KEY = '5c0e447976d0efaae83ee3d44b0afca1'; 
   
-  const DEEPSEEK_URL = 'https://api.deepseek.com/chat/completions';
+  const ALIYUN_URL = 'https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions';
   const TIAN_NEWS_URL = 'https://apis.tianapi.com/caijing/index';
 
   try {
@@ -33,8 +33,8 @@ exports.main = async (event, context) => {
     }
 
     // 3. 第二步：修改 Prompt 指令，强制要求生成 10 条
-    const aiRes = await axios.post(DEEPSEEK_URL, {
-      model: "deepseek-chat",
+    const aiRes = await axios.post(ALIYUN_URL, {
+      model: "qwen-plus",
       messages: [
         { 
           role: "system", 

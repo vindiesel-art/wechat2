@@ -229,3 +229,27 @@
   font-size: 20rpx;
   color: #bbb;
 }
+
+/* 给文字一个平滑过渡，防止字符跳动时闪烁 */
+.summary-content, .analysis-text {
+  transition: all 0.2s ease;
+  min-height: 1.2em; /* 防止高度塌陷 */
+  display: inline-block;
+}
+
+/* 如果需要光标效果，可以在 text 后加一个伪元素 */
+.analysis-text::after {
+  content: '';
+  display: inline-block;
+  width: 4rpx;
+  height: 28rpx;
+  background-color: #0052d9;
+  margin-left: 4rpx;
+  vertical-align: middle;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
