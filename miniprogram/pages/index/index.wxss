@@ -63,6 +63,22 @@
   padding: 28rpx;
   margin-bottom: 32rpx;
   box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.04);
+  
+  /* 绑定入场动画 */
+  animation: fadeInDown 0.6s ease-out forwards;
+  opacity: 0; /* 默认不可见 */
+}
+
+/* 定义向上滑入并渐显的动画 */
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(40rpx);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .news-title {

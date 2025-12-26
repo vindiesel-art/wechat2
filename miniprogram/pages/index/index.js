@@ -40,45 +40,36 @@ Page({
       }
     }).then(res => {
       wx.hideLoading();
-      
       if (res.result && res.result.code === 0) {
-        const aiData = res.result.data; 
+        const aiData = res.result.data;
         
         if (aiData) {
-          // A. 先只更新总结，清空列表
+          // 1. 先展示摘要，并清空列表容器，防止旧数据干扰
           this.setData({
             summary: aiData.summary || '暂无今日摘要',
             newsList: [] 
           });
-
+    
           const fullList = aiData.news_list || [];
-          let currentList = [];
           
-          // B. 逐条弹出逻辑 (加固版)
-          // 增加间隔到 500ms，展示 10 条约需 5 秒，非常有仪式感
-          const interval = 500; 
-
+          // 2. 使用数据路径动态更新
+          // 这种方式不会替换整个数组，而是逐条往数组末尾追加
           fullList.forEach((item, index) => {
             setTimeout(() => {
-              // 使用 push 方法构建新数组
-              currentList.push(item);
-              
-              // 关键：每次 setData 只追加最新的一条数据
+              // 关键点：使用 ['newsList[' + index + ']'] 这种字符串路径
+              // 强制小程序每一轮都触发一次独立的渲染流程
               this.setData({
-                [`newsList[${index}]`]: item // 这种写法性能更高，且强制触发局部渲染
+                [`newsList[${index}]`]: item
               });
-
-              // 如果是最后一条，彻底关闭 Loading
+    
+              // 如果是最后一条，结束加载状态
               if (index === fullList.length - 1) {
                 this.setData({ isLoading: false });
-                wx.showToast({ title: '10条解析已就绪', icon: 'success' });
+                wx.showToast({ title: '更新完成', icon: 'success' });
               }
-            }, (index + 1) * interval);
+            }, (index + 1) * 450); // 10条数据，每条间隔450ms，整体体感最舒适
           });
         }
-      } else {
-        this.setData({ isLoading: false });
-        wx.showToast({ title: '数据异常', icon: 'none' });
       }
     }).catch(err => {
       wx.hideLoading();
